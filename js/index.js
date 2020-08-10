@@ -7,7 +7,7 @@ const finalMessage=document.getElementById("final-message");
 const finalMessagerevealword=document.getElementById("final-message-reaveal-word");
 
 const figureParts=document.querySelectorAll(".figure-part");
-const words=["application","programming","Interface","wizard"];
+const words=["application","programming","interface","wizard"];
 
 let selectedword= words[Math.floor(Math.random()*words.length)];
 let playable=true;
@@ -71,21 +71,25 @@ window.addEventListener('keydown',e=>{
                 if(!correctLetter.includes(letter)){
                     correctLetter.push(letter);
                     displayWord();
+                    return;
                 }
                 //if that key is already pressed
                 else{
                     //letter in string and alreday pressed
                     showNotification();
+                    return;
                 }
             }
             if(!wrongletters.includes(letter)){
                 //letter not in string
                 wrongletters.push(letter);
                 updateWrongLetterEl();
+                return;
             }
             else{
                 //letters not pressed also letter already pressed
                 showNotification();
+                return;
             }
         }
     }
